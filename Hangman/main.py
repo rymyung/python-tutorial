@@ -46,4 +46,3 @@ while not is_game_end:
             is_game_end = True
             print('You lose.')
             print(f'The chosen word is {chosen_word}')
-
