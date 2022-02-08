@@ -30,13 +30,15 @@ def calculator():
 
         print(f'{num1} {operation_symbol} {num2} = {answer}')
         
-        check = input(f'Type \'y\' to continue calculating with {answer}, or type \'n\' to start a new calculation.: ')
+        check = input(f'Type \'y\' to continue calculating with {answer}, or type \'n\' to start a new calculation, or type \'x\' to exit.: ')
         if check == 'y':
             num1 = answer
-        else:
-            print('Goodbye.')
+        elif check == 'n':
             is_continue = False
             calculator()
+        else:
+            is_continue = False
+            print('Goodbye.')
 
 
 if __name__ == '__main__':
@@ -66,4 +68,4 @@ if __name__ == '__main__':
         '/': divide
     }   
     
-    
+    calculator()
