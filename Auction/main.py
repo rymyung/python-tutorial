@@ -1,5 +1,4 @@
 
-from gettext import find
 import os
 
 def find_highest_bidder(bidding_record):
