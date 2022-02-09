@@ -1,6 +1,7 @@
 
 import random
 import os
+import collections
 
 def draw_card():
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -96,7 +97,6 @@ def simul_blackjack(base_score):
 
     continue_draw = True
     while continue_draw:
-        os.system('clear')
         
         # 점수 계산
         my_score = calculate_score(my_deck)
@@ -153,10 +153,19 @@ if __name__ == '__main__':
 '''
 
 if __name__ == '__main__':
+    # base_score 이하일 때 카드 뽑기를 할 경우 승률 시뮬레이션
     simul_result = {}
+    simul_times = 1000
     for base_score in range(1, 21):
-        simul_list = [simul_blackjack(base_score) for _ in range(10)]
+        simul_list = [simul_blackjack(base_score) for _ in range(simul_times)]
         simul_result[base_score] = simul_list
-        print(f'{base_score} is done.')
     
-    print(simul_result)
+    simul_rates = {}
+    for k, v in simul_result.items():
+        rates = collections.Counter(simul_result[k])
+        simul_rates[k] = [rates[1]/simul_times, rates[0]/simul_times, rates[-1]/simul_times]
+    
+    for base_score, rate in simul_rates.items():
+        print(f'Base score : {base_score}, Winning rate : {rate[0]}, Draw rate : {rate[1]}, Lose rate : {rate[2]}')
+    
+    
