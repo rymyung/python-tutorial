@@ -1,6 +1,7 @@
 import arts
 import game_data
 import random
+import os
 
 def choose_target(history):
     
@@ -19,10 +20,10 @@ def choose_target(history):
 
 
 def guess_answer():
-    answer = input(f'Does \"{second_name}\" has more follower than \"{first_name}\"? Choose higher or lower: ').lower()
+    answer = input(f'Chose more follower! \nA : {first_name}, B : {second_name}. Answer? ').upper()
     
-    if answer not in ['higher', 'lower']:
-        print('Type only \'higher\' or \'lower\'')
+    if answer not in ['A', 'B']:
+        print('Type only \'A\' or \'B\'')
         answer = guess_answer()
     
     return answer
@@ -30,13 +31,14 @@ def guess_answer():
 
 def check_answer(first_follower, second_follower, answer):
     
-    if answer == 'higher':
-        if first_follower < second_follower:
+    if answer == 'A':
+        if first_follower > second_follower:
             result = True
         else:
             result = False
-    elif answer == 'lower':
-        if first_follower > second_follower:
+    
+    elif answer == 'B':
+        if first_follower < second_follower:
             result = True
         else:
             result = False
@@ -70,16 +72,18 @@ if __name__ == '__main__':
         answer = guess_answer()
         result = check_answer(first_follower, second_follower, answer)
         score += result
-
+        
+        os.system('clear')
         if not result:
             print(f'No...')
         else:
             print(f'Yes!')
         print(f'\"{first_name}\" : {first_follower} vs \"{second_name}\" : {second_follower}')
-        print('='*50)
+        print('='*60)
         
         # game data를 모두 다 썼을 때는 종료
         if len(history) == len(data):
             break
     
     print(f'Your final score is {score}')
+    print('Goodbye')
