@@ -168,4 +168,3 @@ if __name__ == '__main__':
     for base_score, rate in simul_rates.items():
         print(f'Base score : {base_score}, Winning rate : {rate[0]}, Draw rate : {rate[1]}, Lose rate : {rate[2]}')
     
-    
