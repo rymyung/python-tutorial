@@ -34,7 +34,7 @@ class Robot:
 
     # 클래스 메서드
     @classmethod
-    def how_many(cls):
+    def how_many(cls):  # cls -> Robot
         print(f'We have {cls.population} robot.')
 
     @staticmethod
@@ -50,15 +50,15 @@ class Robot:
         return f'{self.name} call!!'
 
 
-# print(Robot.population)  # 0
+print(Robot.population)  # 0
 siri = Robot('siri', 29184853)
-# print(Robot.population)  # 1
+print(Robot.population)  # 1
 jarvis = Robot('jarvis', 20948455)
-# print(Robot.population)  # 2
+print(Robot.population)  # 2
 bixby = Robot('bixby', 49583732)
-# print(Robot.population)  # 3
+print(Robot.population)  # 3
 
-# Robot.how_many()
+Robot.how_many()
 
 """
 #* namespace : 개체를 구분할 수 있는 범위
@@ -67,7 +67,7 @@ bixby = Robot('bixby', 49583732)
 #* __doc__ : class의 주석을 확인한다.
 #* __class__ : 어떤 클래스로 만들어진 인스턴스인지 확인할 수 있다.
 """
-'''
+
 print(Robot.__dict__)
 print(siri.__dict__)  # name, code만 존재
 
@@ -88,7 +88,6 @@ print(siri.__class__)
 
 # @staticmethod 미사용 시 인스턴스로 호출하면 에러 발생 (Robot.is_robot_class() 사용)
 print(siri.is_robot_class())
-'''
 
 # __str__
 print(siri)
