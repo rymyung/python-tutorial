@@ -41,16 +41,24 @@ class Robot:
     def is_robot_class():
         print('yes!!')
 
+    # magic method
+    def __str__(self):
+        return f'{self.name} robot!!'
 
-print(Robot.population)  # 0
+    def __call__(self):
+        print('call!!')
+        return f'{self.name} call!!'
+
+
+# print(Robot.population)  # 0
 siri = Robot('siri', 29184853)
-print(Robot.population)  # 1
+# print(Robot.population)  # 1
 jarvis = Robot('jarvis', 20948455)
-print(Robot.population)  # 2
+# print(Robot.population)  # 2
 bixby = Robot('bixby', 49583732)
-print(Robot.population)  # 3
+# print(Robot.population)  # 3
 
-Robot.how_many()
+# Robot.how_many()
 
 """
 #* namespace : 개체를 구분할 수 있는 범위
@@ -59,6 +67,7 @@ Robot.how_many()
 #* __doc__ : class의 주석을 확인한다.
 #* __class__ : 어떤 클래스로 만들어진 인스턴스인지 확인할 수 있다.
 """
+'''
 print(Robot.__dict__)
 print(siri.__dict__)  # name, code만 존재
 
@@ -69,14 +78,22 @@ print(siri.how_many())
 # Robot.say_hi() -> 에러 발생
 Robot.say_hi(siri)
 
-
 # 사용할 수 있는 목록 확인
 print(dir(Robot))
 print(dir(siri))
 
-
+# magic method
 print(Robot.__doc__)
 print(siri.__class__)
 
 # @staticmethod 미사용 시 인스턴스로 호출하면 에러 발생 (Robot.is_robot_class() 사용)
 print(siri.is_robot_class())
+'''
+
+# __str__
+print(siri)
+print(siri.__str__())
+
+# __call__
+call_returned = siri()
+print(call_returned)
