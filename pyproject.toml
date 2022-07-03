@@ -6,6 +6,9 @@ authors = ["rymyung <rymyung@hanmail.net>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+requests = "^2.28.1"
+asyncio = "^3.4.3"
+aiohttp = "3.7.3"
 
 [tool.poetry.dev-dependencies]
 
